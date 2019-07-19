@@ -1,1 +1,62 @@
-<p>progress works!</p>
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-body">
+
+                <h3 class='card-title'>Barra de Progreso</h3>
+
+                <div class="progress">
+                    <div class="progress-bar progress-bar-striped progress-bar-animated bg-success" role="progressbar"
+                        [attr.aria-valuenow]="progreso1" aria-valuemin="0" aria-valuemax="100" [style.width]= "progreso1 + '%'"></div>
+                </div>
+                <br>
+                <div class="progress">
+                    <div class="progress-bar progress-bar-striped progress-bar-animated bg-warning" role="progressbar"
+                        [attr.aria-valuenow]="progreso2" aria-valuemin="0" aria-valuemax="100" [style.width]= "progreso2 + '%'"></div>
+                </div>
+                <br>
+                <div class="progress">
+                    <div class="progress-bar progress-bar-striped progress-bar-animated bg-info" role="progressbar"
+                        [attr.aria-valuenow]="progreso3" aria-valuemin="0" aria-valuemax="100" [style.width]= "progreso3 + '%'"></div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+
+    <div class="col-4">
+        <div class="card">
+            <div class="card-body">
+
+                <!-- Este es el componente incrementador -->
+                <!-- Le paso como parametro un string estatico en el caso de nombre -->
+                <!-- Y luego le paso una variable que viene de otro componente en el caso de progreso1 -->
+                <app-incrementador (cambioValor)='progreso1 = $event' nombre='Progress Verde' [progreso]='progreso1'></app-incrementador>
+                
+            </div>
+        </div>
+    </div>
+    
+    <div class="col-4">
+        <div class="card">
+            <div class="card-body">
+
+                <app-incrementador (cambioValor)='progreso2 = $event' nombre='Progress Amarillo' [progreso]='progreso2'></app-incrementador>
+            
+            </div>
+        </div>
+    </div>
+
+    <div class="col-4">
+        <div class="card">
+            <div class="card-body">
+
+                <app-incrementador (cambioValor)='progreso3 = $event' nombre='Progress Azul' [progreso]='progreso3'></app-incrementador>
+            
+            </div>
+        </div>
+    </div>
+</div>
